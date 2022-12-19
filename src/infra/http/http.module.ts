@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SendNotificationUseCase } from 'src/application/use-cases/SendNotificationUseCase';
+import { SendNotificationUseCase } from '@application/use-cases/SendNotificationUseCase';
 import { DatabaseModule } from '../database/database.module';
 import { NotificationsController } from './controllers/Notifications.controller';
 
