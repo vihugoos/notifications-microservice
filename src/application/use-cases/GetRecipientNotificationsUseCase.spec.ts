@@ -17,11 +17,11 @@ describe('Get recipients notifications', () => {
         );
 
         await notificationsRepositoryInMemory.create(
-            makeNotification({ recipientId: 'recipient-2' }),
+            makeNotification({ recipientId: 'recipient-1' }),
         );
 
         await notificationsRepositoryInMemory.create(
-            makeNotification({ recipientId: 'recipient-3' }),
+            makeNotification({ recipientId: 'recipient-2' }),
         );
 
         const { notifications } =
@@ -33,8 +33,7 @@ describe('Get recipients notifications', () => {
         expect(notifications).toEqual(
             expect.arrayContaining([
                 expect.objectContaining({ recipientId: 'recipient-1' }),
-                expect.objectContaining({ recipientId: 'recipient-2' }),
-                expect.objectContaining({ recipientId: 'recipient-3' }),
+                expect.objectContaining({ recipientId: 'recipient-1' }),
             ]),
         );
     });
