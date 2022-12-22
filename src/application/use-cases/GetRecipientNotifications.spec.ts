@@ -1,16 +1,15 @@
 import { NotificationRepositoryInMemory } from '@test/repositories/in-memory/NotificationsRepositoryInMemory';
 import { makeNotification } from '@test/factories/notification-factory';
-import { GetRecipientNotificationsUseCase } from './GetRecipientNotificationsUseCase';
+import { GetRecipientNotifications } from './GetRecipientNotifications';
 
 describe('Get recipients notifications', () => {
-    it('Should be able to get recipient notifications', async () => {
+    it('should be able to get recipient notifications', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const getRecipientNotificationsUseCase =
-            new GetRecipientNotificationsUseCase(
-                notificationsRepositoryInMemory,
-            );
+        const getRecipientNotifications = new GetRecipientNotifications(
+            notificationsRepositoryInMemory,
+        );
 
         await notificationsRepositoryInMemory.create(
             makeNotification({ recipientId: 'recipient-1' }),
@@ -24,10 +23,9 @@ describe('Get recipients notifications', () => {
             makeNotification({ recipientId: 'recipient-2' }),
         );
 
-        const { notifications } =
-            await getRecipientNotificationsUseCase.execute({
-                recipientId: 'recipient-1',
-            });
+        const { notifications } = await getRecipientNotifications.execute(
+            'recipient-1',
+        );
 
         expect(notifications).toHaveLength(2);
         expect(notifications).toEqual(

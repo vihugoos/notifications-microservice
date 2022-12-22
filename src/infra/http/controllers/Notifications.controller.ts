@@ -4,7 +4,7 @@ import { CancelNotification } from '@application/use-cases/CancelNotification';
 import { ReadNotificationUseCase } from '@application/use-cases/ReadNotificationUseCase';
 import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
 import { CountRecipientNotifications } from '@application/use-cases/CountRecipientNotifications';
-import { GetRecipientNotificationsUseCase } from '@application/use-cases/GetRecipientNotificationsUseCase';
+import { GetRecipientNotifications } from '@application/use-cases/GetRecipientNotifications';
 
 import { CreateNotificationBodyDTO } from '../dtos/CreateNotificationBodyDTO';
 import { NotificationViewModel } from '../view-models/NotificationViewModel';
@@ -17,7 +17,7 @@ export class NotificationsController {
         private readNotificationUseCase: ReadNotificationUseCase,
         private unreadNotificationUseCase: UnreadNotificationUseCase,
         private countRecipientNotifications: CountRecipientNotifications,
-        private getRecipientNotificationsUseCase: GetRecipientNotificationsUseCase,
+        private getRecipientNotifications: GetRecipientNotifications,
     ) {}
 
     @Patch(':id/cancel')
@@ -36,10 +36,9 @@ export class NotificationsController {
 
     @Get('from/:recipientId')
     async getFromRecipient(@Param('recipientId') recipientId: string) {
-        const { notifications } =
-            await this.getRecipientNotificationsUseCase.execute({
-                recipientId,
-            });
+        const { notifications } = await this.getRecipientNotifications.execute(
+            recipientId,
+        );
 
         return {
             notifications: notifications.map(NotificationViewModel.toHTTP),

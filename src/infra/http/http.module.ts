@@ -4,7 +4,7 @@ import { DatabaseModule } from '../database/database.module';
 import { NotificationsController } from './controllers/Notifications.controller';
 import { CancelNotification } from '@application/use-cases/CancelNotification';
 import { CountRecipientNotifications } from '@application/use-cases/CountRecipientNotifications';
-import { GetRecipientNotificationsUseCase } from '@application/use-cases/GetRecipientNotificationsUseCase';
+import { GetRecipientNotifications } from '@application/use-cases/GetRecipientNotifications';
 import { ReadNotificationUseCase } from '@application/use-cases/ReadNotificationUseCase';
 import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
 
@@ -15,7 +15,7 @@ import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotifica
         SendNotificationUseCase,
         CancelNotification,
         CountRecipientNotifications,
-        GetRecipientNotificationsUseCase,
+        GetRecipientNotifications,
         ReadNotificationUseCase,
         UnreadNotificationUseCase,
     ],
