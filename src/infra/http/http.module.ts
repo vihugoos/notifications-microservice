@@ -6,7 +6,7 @@ import { CancelNotificationUseCase } from '@application/use-cases/CancelNotifica
 import { CountRecipientNotificationsUseCase } from '@application/use-cases/CountRecipientNotificationsUseCase';
 import { GetRecipientNotificationsUseCase } from '@application/use-cases/GetRecipientNotificationsUseCase';
 import { ReadNotification } from '@application/use-cases/ReadNotification';
-import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
+import { UnreadNotification } from '@application/use-cases/UnreadNotification';
 
 @Module({
     imports: [DatabaseModule],
@@ -17,7 +17,7 @@ import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotifica
         CountRecipientNotificationsUseCase,
         GetRecipientNotificationsUseCase,
         ReadNotification,
-        UnreadNotificationUseCase,
+        UnreadNotification,
     ],
 })
 export class HttpModule {}

@@ -1,14 +1,14 @@
 import { NotificationRepositoryInMemory } from '@test/repositories/in-memory/NotificationsRepositoryInMemory';
 import { NotificationNotFound } from './errors/NotificationNotFound';
 import { makeNotification } from '@test/factories/notification-factory';
-import { UnreadNotificationUseCase } from './UnreadNotificationUseCase';
+import { UnreadNotification } from './UnreadNotification';
 
 describe('Unread Notification', () => {
-    it('Should be to unread a notification', async () => {
+    it('should be to unread a notification', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const unreadNotificationUseCase = new UnreadNotificationUseCase(
+        const unreadNotification = new UnreadNotification(
             notificationsRepositoryInMemory,
         );
 
@@ -18,27 +18,23 @@ describe('Unread Notification', () => {
 
         await notificationsRepositoryInMemory.create(notification);
 
-        await unreadNotificationUseCase.execute({
-            notificationId: notification.id,
-        });
+        await unreadNotification.execute(notification.id);
 
         expect(
             notificationsRepositoryInMemory.notifications[0].readAt,
         ).toBeNull();
     });
 
-    it('Should not be able to unread a non existing notification', async () => {
+    it('should not be able to unread a non existing notification', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const unreadNotificationUseCase = new UnreadNotificationUseCase(
+        const unreadNotification = new UnreadNotification(
             notificationsRepositoryInMemory,
         );
 
         expect(() => {
-            return unreadNotificationUseCase.execute({
-                notificationId: 'fake-notification-d',
-            });
+            return unreadNotification.execute('fake-notification-d');
         }).rejects.toThrow(NotificationNotFound);
     });
 });
