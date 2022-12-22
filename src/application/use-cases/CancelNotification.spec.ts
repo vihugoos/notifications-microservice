@@ -1,5 +1,5 @@
 import { NotificationRepositoryInMemory } from '@test/repositories/in-memory/NotificationsRepositoryInMemory';
-import { CancelNotificationUseCase } from './CancelNotificationUseCase';
+import { CancelNotification } from './CancelNotification';
 import { NotificationNotFound } from './errors/NotificationNotFound';
 import { makeNotification } from '@test/factories/notification-factory';
 
@@ -8,7 +8,7 @@ describe('Cancel Notification', () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const cancelNotification = new CancelNotificationUseCase(
+        const cancelNotification = new CancelNotification(
             notificationsRepositoryInMemory,
         );
 
@@ -16,9 +16,7 @@ describe('Cancel Notification', () => {
 
         await notificationsRepositoryInMemory.create(notification);
 
-        await cancelNotification.execute({
-            notificationId: notification.id,
-        });
+        await cancelNotification.execute(notification.id);
 
         expect(
             notificationsRepositoryInMemory.notifications[0].canceledAt,
@@ -29,14 +27,12 @@ describe('Cancel Notification', () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const cancelNotification = new CancelNotificationUseCase(
+        const cancelNotification = new CancelNotification(
             notificationsRepositoryInMemory,
         );
 
         expect(() => {
-            return cancelNotification.execute({
-                notificationId: 'fake-notification-d',
-            });
+            return cancelNotification.execute('fake-notification-id');
         }).rejects.toThrow(NotificationNotFound);
     });
 });
