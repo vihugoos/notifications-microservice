@@ -4,7 +4,7 @@ import { NotificationNotFound } from './errors/NotificationNotFound';
 import { makeNotification } from '@test/factories/notification-factory';
 
 describe('Cancel Notification', () => {
-    it('Should be able to cancel a notification', async () => {
+    it('should be able to cancel a notification', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
@@ -23,7 +23,7 @@ describe('Cancel Notification', () => {
         ).toEqual(expect.any(Date));
     });
 
-    it('Should not be able to cancel a non existing notification', async () => {
+    it('should not be able to cancel a non existing notification', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
