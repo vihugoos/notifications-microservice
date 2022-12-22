@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SendNotificationUseCase } from '@application/use-cases/SendNotificationUseCase';
+import { SendNotification } from '@application/use-cases/SendNotification';
 import { DatabaseModule } from '../database/database.module';
 import { NotificationsController } from './controllers/Notifications.controller';
 import { CancelNotificationUseCase } from '@application/use-cases/CancelNotificationUseCase';
@@ -12,7 +12,7 @@ import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotifica
     imports: [DatabaseModule],
     controllers: [NotificationsController],
     providers: [
-        SendNotificationUseCase,
+        SendNotification,
         CancelNotificationUseCase,
         CountRecipientNotificationsUseCase,
         GetRecipientNotificationsUseCase,

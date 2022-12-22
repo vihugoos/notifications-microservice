@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-import { SendNotificationUseCase } from '@application/use-cases/SendNotificationUseCase';
+import { SendNotification } from '@application/use-cases/SendNotification';
 import { CancelNotification } from '@application/use-cases/CancelNotification';
 import { ReadNotification } from '@application/use-cases/ReadNotification';
 import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
@@ -12,7 +12,7 @@ import { NotificationViewModel } from '../view-models/NotificationViewModel';
 @Controller('notifications')
 export class NotificationsController {
     constructor(
-        private sendNotificationUseCase: SendNotificationUseCase,
+        private sendNotification: SendNotification,
         private cancelNotification: CancelNotification,
         private readNotification: ReadNotification,
         private unreadNotificationUseCase: UnreadNotificationUseCase,
@@ -59,7 +59,7 @@ export class NotificationsController {
     async create(@Body() body: CreateNotificationBodyDTO) {
         const { recipientId, content, category } = body;
 
-        const { notification } = await this.sendNotificationUseCase.execute({
+        const { notification } = await this.sendNotification.execute({
             recipientId,
             content,
             category,
