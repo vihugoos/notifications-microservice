@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { SendNotificationUseCase } from '@application/use-cases/SendNotificationUseCase';
 import { DatabaseModule } from '../database/database.module';
 import { NotificationsController } from './controllers/Notifications.controller';
-import { CancelNotification } from '@application/use-cases/CancelNotification';
-import { CountRecipientNotifications } from '@application/use-cases/CountRecipientNotifications';
-import { GetRecipientNotifications } from '@application/use-cases/GetRecipientNotifications';
-import { ReadNotificationUseCase } from '@application/use-cases/ReadNotificationUseCase';
+import { CancelNotificationUseCase } from '@application/use-cases/CancelNotificationUseCase';
+import { CountRecipientNotificationsUseCase } from '@application/use-cases/CountRecipientNotificationsUseCase';
+import { GetRecipientNotificationsUseCase } from '@application/use-cases/GetRecipientNotificationsUseCase';
+import { ReadNotification } from '@application/use-cases/ReadNotification';
 import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
 
 @Module({
@@ -13,10 +13,10 @@ import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotifica
     controllers: [NotificationsController],
     providers: [
         SendNotificationUseCase,
-        CancelNotification,
-        CountRecipientNotifications,
-        GetRecipientNotifications,
-        ReadNotificationUseCase,
+        CancelNotificationUseCase,
+        CountRecipientNotificationsUseCase,
+        GetRecipientNotificationsUseCase,
+        ReadNotification,
         UnreadNotificationUseCase,
     ],
 })

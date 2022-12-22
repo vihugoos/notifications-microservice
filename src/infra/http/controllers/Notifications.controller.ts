@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { SendNotificationUseCase } from '@application/use-cases/SendNotificationUseCase';
 import { CancelNotification } from '@application/use-cases/CancelNotification';
-import { ReadNotificationUseCase } from '@application/use-cases/ReadNotificationUseCase';
+import { ReadNotification } from '@application/use-cases/ReadNotification';
 import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
 import { CountRecipientNotifications } from '@application/use-cases/CountRecipientNotifications';
 import { GetRecipientNotifications } from '@application/use-cases/GetRecipientNotifications';
@@ -14,7 +14,7 @@ export class NotificationsController {
     constructor(
         private sendNotificationUseCase: SendNotificationUseCase,
         private cancelNotification: CancelNotification,
-        private readNotificationUseCase: ReadNotificationUseCase,
+        private readNotification: ReadNotification,
         private unreadNotificationUseCase: UnreadNotificationUseCase,
         private countRecipientNotifications: CountRecipientNotifications,
         private getRecipientNotifications: GetRecipientNotifications,
@@ -47,7 +47,7 @@ export class NotificationsController {
 
     @Patch(':id/read')
     async read(@Param('id') id: string) {
-        await this.readNotificationUseCase.execute({ notificationId: id });
+        await this.readNotification.execute(id);
     }
 
     @Patch(':id/unread')

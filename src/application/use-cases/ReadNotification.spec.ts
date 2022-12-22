@@ -1,14 +1,14 @@
 import { NotificationRepositoryInMemory } from '@test/repositories/in-memory/NotificationsRepositoryInMemory';
 import { NotificationNotFound } from './errors/NotificationNotFound';
 import { makeNotification } from '@test/factories/notification-factory';
-import { ReadNotificationUseCase } from './ReadNotificationUseCase';
+import { ReadNotification } from './ReadNotification';
 
 describe('Read Notification', () => {
-    it('Should be able to read a notification', async () => {
+    it('should be able to read a notification', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const readNotificationUseCase = new ReadNotificationUseCase(
+        const readNotification = new ReadNotification(
             notificationsRepositoryInMemory,
         );
 
@@ -16,27 +16,23 @@ describe('Read Notification', () => {
 
         await notificationsRepositoryInMemory.create(notification);
 
-        await readNotificationUseCase.execute({
-            notificationId: notification.id,
-        });
+        await readNotification.execute(notification.id);
 
         expect(notificationsRepositoryInMemory.notifications[0].readAt).toEqual(
             expect.any(Date),
         );
     });
 
-    it('Should not be able to read a non existing notification', async () => {
+    it('should not be able to read a non existing notification', async () => {
         const notificationsRepositoryInMemory =
             new NotificationRepositoryInMemory();
 
-        const readNotificationUseCase = new ReadNotificationUseCase(
+        const readNotification = new ReadNotification(
             notificationsRepositoryInMemory,
         );
 
         expect(() => {
-            return readNotificationUseCase.execute({
-                notificationId: 'fake-notification-d',
-            });
+            return readNotification.execute('fake-notification-d');
         }).rejects.toThrow(NotificationNotFound);
     });
 });
