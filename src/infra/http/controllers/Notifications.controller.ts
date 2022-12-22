@@ -3,7 +3,7 @@ import { SendNotificationUseCase } from '@application/use-cases/SendNotification
 import { CancelNotification } from '@application/use-cases/CancelNotification';
 import { ReadNotificationUseCase } from '@application/use-cases/ReadNotificationUseCase';
 import { UnreadNotificationUseCase } from '@application/use-cases/UnreadNotificationUseCase';
-import { CountRecipientNotificationsUseCase } from '@application/use-cases/CountRecipientNotificationsUseCase';
+import { CountRecipientNotifications } from '@application/use-cases/CountRecipientNotifications';
 import { GetRecipientNotificationsUseCase } from '@application/use-cases/GetRecipientNotificationsUseCase';
 
 import { CreateNotificationBodyDTO } from '../dtos/CreateNotificationBodyDTO';
@@ -16,7 +16,7 @@ export class NotificationsController {
         private cancelNotification: CancelNotification,
         private readNotificationUseCase: ReadNotificationUseCase,
         private unreadNotificationUseCase: UnreadNotificationUseCase,
-        private countRecipientNotificationsUseCase: CountRecipientNotificationsUseCase,
+        private countRecipientNotifications: CountRecipientNotifications,
         private getRecipientNotificationsUseCase: GetRecipientNotificationsUseCase,
     ) {}
 
@@ -27,10 +27,8 @@ export class NotificationsController {
 
     @Get('count/from/:recipientId')
     async countFromRecipient(@Param('recipientId') recipientId: string) {
-        const { count } = await this.countRecipientNotificationsUseCase.execute(
-            {
-                recipientId,
-            },
+        const { count } = await this.countRecipientNotifications.execute(
+            recipientId,
         );
 
         return count;
