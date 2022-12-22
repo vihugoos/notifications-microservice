@@ -4,22 +4,21 @@ import { GetRecipientNotifications } from './GetRecipientNotifications';
 
 describe('Get recipients notifications', () => {
     it('should be able to get recipient notifications', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
         const getRecipientNotifications = new GetRecipientNotifications(
-            notificationsRepositoryInMemory,
+            notificationsRepository,
         );
 
-        await notificationsRepositoryInMemory.create(
+        await notificationsRepository.create(
             makeNotification({ recipientId: 'recipient-1' }),
         );
 
-        await notificationsRepositoryInMemory.create(
+        await notificationsRepository.create(
             makeNotification({ recipientId: 'recipient-1' }),
         );
 
-        await notificationsRepositoryInMemory.create(
+        await notificationsRepository.create(
             makeNotification({ recipientId: 'recipient-2' }),
         );
 

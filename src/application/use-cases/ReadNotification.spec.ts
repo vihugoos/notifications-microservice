@@ -5,31 +5,25 @@ import { ReadNotification } from './ReadNotification';
 
 describe('Read Notification', () => {
     it('should be able to read a notification', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
-        const readNotification = new ReadNotification(
-            notificationsRepositoryInMemory,
-        );
+        const readNotification = new ReadNotification(notificationsRepository);
 
         const notification = makeNotification();
 
-        await notificationsRepositoryInMemory.create(notification);
+        await notificationsRepository.create(notification);
 
         await readNotification.execute(notification.id);
 
-        expect(notificationsRepositoryInMemory.notifications[0].readAt).toEqual(
+        expect(notificationsRepository.notifications[0].readAt).toEqual(
             expect.any(Date),
         );
     });
 
     it('should not be able to read a non existing notification', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
-        const readNotification = new ReadNotification(
-            notificationsRepositoryInMemory,
-        );
+        const readNotification = new ReadNotification(notificationsRepository);
 
         expect(() => {
             return readNotification.execute('fake-notification-d');

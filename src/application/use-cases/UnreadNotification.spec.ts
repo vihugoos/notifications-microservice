@@ -5,32 +5,28 @@ import { UnreadNotification } from './UnreadNotification';
 
 describe('Unread Notification', () => {
     it('should be to unread a notification', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
         const unreadNotification = new UnreadNotification(
-            notificationsRepositoryInMemory,
+            notificationsRepository,
         );
 
         const notification = makeNotification({
             readAt: new Date(),
         });
 
-        await notificationsRepositoryInMemory.create(notification);
+        await notificationsRepository.create(notification);
 
         await unreadNotification.execute(notification.id);
 
-        expect(
-            notificationsRepositoryInMemory.notifications[0].readAt,
-        ).toBeNull();
+        expect(notificationsRepository.notifications[0].readAt).toBeNull();
     });
 
     it('should not be able to unread a non existing notification', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
         const unreadNotification = new UnreadNotification(
-            notificationsRepositoryInMemory,
+            notificationsRepository,
         );
 
         expect(() => {

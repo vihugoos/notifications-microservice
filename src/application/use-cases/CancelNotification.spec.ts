@@ -5,30 +5,28 @@ import { makeNotification } from '@test/factories/notification-factory';
 
 describe('Cancel Notification', () => {
     it('should be able to cancel a notification', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
         const cancelNotification = new CancelNotification(
-            notificationsRepositoryInMemory,
+            notificationsRepository,
         );
 
         const notification = makeNotification();
 
-        await notificationsRepositoryInMemory.create(notification);
+        await notificationsRepository.create(notification);
 
         await cancelNotification.execute(notification.id);
 
-        expect(
-            notificationsRepositoryInMemory.notifications[0].canceledAt,
-        ).toEqual(expect.any(Date));
+        expect(notificationsRepository.notifications[0].canceledAt).toEqual(
+            expect.any(Date),
+        );
     });
 
     it('should not be able to cancel a non existing notification', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
         const cancelNotification = new CancelNotification(
-            notificationsRepositoryInMemory,
+            notificationsRepository,
         );
 
         expect(() => {

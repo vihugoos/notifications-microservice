@@ -4,22 +4,21 @@ import { makeNotification } from '@test/factories/notification-factory';
 
 describe('Count recipients notifications', () => {
     it('should be able to count recipient notifications', async () => {
-        const notificationsRepositoryInMemory =
-            new NotificationRepositoryInMemory();
+        const notificationsRepository = new NotificationRepositoryInMemory();
 
         const countRecipientNotifications = new CountRecipientNotifications(
-            notificationsRepositoryInMemory,
+            notificationsRepository,
         );
 
-        await notificationsRepositoryInMemory.create(
+        await notificationsRepository.create(
             makeNotification({ recipientId: 'recipient-1' }),
         );
 
-        await notificationsRepositoryInMemory.create(
+        await notificationsRepository.create(
             makeNotification({ recipientId: 'recipient-1' }),
         );
 
-        await notificationsRepositoryInMemory.create(
+        await notificationsRepository.create(
             makeNotification({ recipientId: 'recipient-3' }),
         );
 
