@@ -60,7 +60,7 @@
 <!---- THE PROJECT ---->
 ## About The Project 
 
-<img src="https://user-images.githubusercontent.com/44311634/206552225-a6c4db19-a7d1-46d2-8b4d-f38eb14d2fab.png" align="center" alt="Project Home Page">
+<img src="" align="center" alt="Project Home Page">
 A microservice for sending notifications, following SOLID principles. Receiving notifications by the service can be done via HTTP requests or through asynchronous messaging by a Kafka Producer. Some patterns like Data mapper, Factory method and DTO, were applied. The tests apply the in-memory database concept.
 
 
@@ -71,13 +71,21 @@ A microservice for sending notifications, following SOLID principles. Receiving 
     <a href="https://nodejs.org/en/"> 
       <img align="center" alt="Icon-Node.js" height="33" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"> 
     </a> &nbsp;
-    <!-- Icon Yarn --> 
-    <a href="https://yarnpkg.com/"> 
-      <img align="center" alt="Icon-Yarn" height="33" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg"> 
-    </a> &nbsp;
     <!-- Icon TypeScript --> 
     <a href="https://www.typescriptlang.org/"> 
-      <img align="center" alt="Icon-TypeScript" height="33" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"> 
+      <img align="center" alt="Icon-TypeScript" height="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"> 
+    </a> &nbsp;
+    <!-- Icon Nest.js --> 
+    <a href="https://nestjs.com/"> 
+      <img align="center" alt="Icon-Nest.js" height="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"> 
+    </a> &nbsp;
+    <!-- Icon Prisma --> 
+    <a href="https://www.prisma.io/"> 
+      <img align="center" alt="Icon-Prisma" height="32" src="https://user-images.githubusercontent.com/44311634/178335052-08bb4b29-c4da-4100-ae71-8b65cf6cd581.png"> 
+    </a> &nbsp;
+    <!-- Icon Jest --> 
+    <a href="https://jestjs.io/"> 
+      <img align="center" alt="Icon-Jest" height="31" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg"> 
     </a> &nbsp;
     <!-- Icon Docker -->
     <a href="https://www.docker.com/"> 
@@ -87,29 +95,9 @@ A microservice for sending notifications, following SOLID principles. Receiving 
     <a href="https://www.postgresql.org/"> 
       <img align="center" alt="Icon-PostgreSQL" height="35" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"> 
     </a> &nbsp;
-    <!-- Icon TypeORM --> 
-    <a href="https://typeorm.io/"> 
-      <img align="center" alt="Icon-TypeORM" height="46" src="https://user-images.githubusercontent.com/44311634/206829885-5dc2e3bc-7598-4a85-bebc-7b80a8136c60.png"> 
-    </a> &nbsp;
-    <!-- Icon Express --> 
-    <a href="https://expressjs.com/"> 
-      <img align="center" alt="Icon-Express" height="33" src="https://user-images.githubusercontent.com/44311634/178337147-61b1e696-b4ef-4f78-8151-c3fb2597050a.png"> 
-    </a> &nbsp;
-    <!-- Icon Jest --> 
-    <a href="https://jestjs.io/"> 
-      <img align="center" alt="Icon-Jest" height="31" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg"> 
-    </a> &nbsp;
-    <!-- Icon Babel --> 
-    <a href="https://babeljs.io/"> 
-      <img align="center" alt="Icon-Jest" height="58" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babel/babel-original.svg"> 
-    </a> &nbsp;
-    <!-- Icon Ubuntu --> 
-    <a href="https://ubuntu.com/"> 
-      <img align="center" alt="Icon-Ubuntu" height="36" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg"> 
-    </a> &nbsp;
-    <!-- Icon AWS --> 
-    <a href="https://aws.amazon.com/"> 
-      <img align="center" alt="Icon-Jest" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"> 
+    <!-- Icon Kafka --> 
+    <a href="https://kafka.apache.org/"> 
+      <img align="center" alt="Icon-Kafka" height="38" src="https://user-images.githubusercontent.com/44311634/209395332-4a1e1025-608f-4c1d-b9b9-87bae2f2cb96.png"> 
     </a> 
 </div>
 
@@ -120,9 +108,9 @@ A microservice for sending notifications, following SOLID principles. Receiving 
 <!---- GETTING STARTED ----> 
 ## Getting Started
 
-To get started, you need to have <strong>Node.js 18+</strong> installed on your machine, for more information visit <a href="https://nodejs.org/en/download/"> Node.js Downloads</a>. You will also need to have <strong>Docker</strong> and <strong>Docker Compose</strong> installed, for more information visit <a href="https://docs.docker.com/engine/install/">Docker Engine Install</a> and <a href="https://docs.docker.com/compose/install/linux/"> Docker Compose Plugin Install </a>. 
+To get started, you need to have <strong>Node.js 18+</strong> installed on your machine, for more information visit <a href="https://nodejs.org/en/download/"> Node.js Downloads</a>. You will also need to have <strong>Docker</strong> installed, for more information visit <a href="https://docs.docker.com/engine/install/">Docker Engine Install</a>. 
 
-<strong>Obs:</strong> This guide will only serve to run the project locally (development environment), initially based on linux systems.
+<strong>Obs:</strong> This guide will only serve to run the project locally (development environment).
 
 
 ### Prerequisites 
@@ -134,46 +122,23 @@ Other than node.js and docker installed, no prerequisites are needed to install 
 
 1. Clone the repo 
    ```bash
-   git clone https://github.com/vihugoos/rentx-cars.git
+   git clone https://github.com/vihugoos/notifications-microservice.git
    ```
 2. Inside the project root directory install all project dependencies 
    ```cmd
-   yarn install
+   npm install
    ```
-3. Create an `.env` file with environment variables for development 
-   
-   <strong>WARNING:</strong> Credentials are for testing purposes only, please change them in the future.
-   
-   ```bash
-   cat > .env << EOF
-   API_BASE_URL='http://localhost:3333' 
-   DISK_STORAGE=local 
-   MAIL_PROVIDER=ethereal 
-   ENVIRONMENT=dev 
-
-   DATABASE=rentx
-   DATABASE_USERNAME=user_test 
-   DATABASE_PASSWORD=12345 
-   DATABASE_PORT=6443
-
-   REDIS_HOST=localhost 
-   REDIS_PORT=5385 
-
-   JWT_SECRET_TOKEN=ec9bb4116d5a4c0023a690343c7e64a1 
-   JWT_SECRET_REFRESH_TOKEN=056104641cb83398798c3f188a548040 
-   EOF
-   ```
-4. Create avatar and cars folder
+3. Create an `.env` file with the database connection configuration  
    ```cmd
-   mkdir tmp/avatar | mkdir tmp/cars 
+   echo "DATABASE_URL='postgresql://postgres:docker@localhost:5432/notifications?schema=public'" > .env 
    ```
-4. Create database services in docker containers 
+4. Create a psql container docker 
    ```cmd
-   docker compose up -d
+   docker run --name notifications_microservice -e POSTGRES_DB=notifications -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres 
    ```
-5. Run the migrate 
+4. Run the migrate 
    ```cmd
-   yarn typeorm migration:run 
+   npx prisma migrate dev
    ```
 
 
@@ -184,203 +149,29 @@ With the installation complete, we can start the project.
 
 * Starting the project 
    ```bash
-   yarn run dev  
+   npm run start:dev  
    ```
 
 
 <!---- TESTS SETUP ----> 
 ## Tests
 
-To be able to run all the tests, follow the commands below:
+To be able to run the tests, run the commands below:
 
-1. Install PostgreSQL Client
-   ```bash
-   sudo apt-get install -y postgresql-client
-   ```
-1. Open and connect terminal-based front-end for PostgreSQL (password: 12345)
+* Just run all tests
    ```cmd
-   psql -h localhost -p 6443 -U user_test -W rentx
+   npm run test
    ```
-2. Run the query (create a database just for testing) 
-   ```sql
-   CREATE DATABASE rentx_test;
-   ```
-3. Quit psql
+* Run all tests in watch mode  
    ```cmd
-   \q
+   npm run test:watch
    ```
-4. Run all test
+* Test coverage 
    ```cmd
-   yarn test 
+   npm run test:cov
    ```
 
 <br/> <br/>
-
-
-<!---- API Documentation ----> 
-## API Documentation
-
-A complete and detailed documentation of the application in swagger. To view, visit [`api-rentx.com/api-docs/`](https://api-rentx.com/api-docs/)
-
-<img src="https://user-images.githubusercontent.com/44311634/208123952-63101a0d-58e2-4b09-9fb2-6740ca89fdd0.png" align="center" alt="Swagger DOC">
-
-<br/> <br/>
-
-
-## Requirements Documentation 
-
-A complete application specification, with all functional and non-functional requirements and business rules.
-
-### Cars Registration 
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible registration a new car.
-
-**RN** (<i>Business Rules</i>)
-- It must not be possible to register a car with an existing license plate.
-- The car must be registered, by default, with availability.
-- The user responsible for the registration must be an administrator user. 
-
----
-
-
-### Car Listing 
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to list **available** cars. 
-- It must be possible to list all available cars by car name.
-- It must be possible to list all available cars by brand.
-- It must be possible to list all available cars by category id.
-- It must be possible to list all cars.
-
-**RN** (<i>Business Rules</i>)
-- To list available cars, the user does not need to be logged into the system.
-- To list all cars, the user must be an administrator.
-
----
-
-
-### Car Category 
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to register a new category.
-- It must be possible to import a CSV with many categories to create.
-- It must be possible to list all categories.
-
-**RN** (<i>Business Rules</i>)
-- It must not be possible to register a new category for an existing category (with same name).
-- The user responsible for the registration must be an administrator user.
-- To list all categories, the user does not need to be logged into the system.
-
----
-
-
-### Car Specifications 
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to register a new specification for a car.
-- It must be possible to list all specifications.
-
-**RN** (<i>Business Rules</i>)
-- It must not be possible to register a new specification for an existing specification (with same name).
-- It must not be possible to register a specification for an unregistered car. 
-- The user responsible for the registration must be an administrator user.
-- To list all specifications, the user must be an administrator. 
-
----
-
-
-### Car Images 
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to register car image. 
-- It must be able to list all car images.
-
-**RNF** (<i>Non-functional requirements</i>)
-- Use the multer library to upload the files. 
-
-**RN** (<i>Business Rules</i>)
-- The user must able to register more than one image for the same car. 
-- The user responsible for the registration must be an administrator user. 
-- To list all car images, the user must be an administrator.
-
----
-
-
-### Car Rental Registration 
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to register a new rental. 
-
-**RN** (<i>Business Rules</i>)
-- The rental must have a minimum duration of 24 hours. 
-- It must not to be possible to register a new rental for a non-existent car.
-- It must not be possible to register a new rental if it's already open for the same user. 
-- It must not be possible to register a new rental if it's already open for the same car. 
-- The user must be logged into the application.
-- After making a rental, the status of the car must be changed to unavailable.
-
----
-
-
-### Car Devolution
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to return the car.
-
-**RN** (<i>Business Rules</i>)
-- If the car returns with less than 24 hours, it must be charged for the full day.
-- It must not be possible to return a non-existent rental.
-- After the return, the car must be released for another rental.
-- After the return, the user must be released for another rental.
-- After the return, the rent total must be calculated.
-- If the time of return is later than the estimated time of delivery, a fine will be charged proportional to the days of delay.
-- If there are fines, they must be added to the total rent.
-- The user must be logged into the application.
-
---- 
-
-
-### Users
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to create a new user.
-- It must be possible to authenticate a user to the application.
-- It must be possible to upload a new profile picture for the user (avatar).
-- It must be possible to show all information about the user.
-- It must to possible to list all users.
-
-**RN** (<i>Business Rules</i>)
-- It must not be possible to create a new user with an existing email.
-- To create a new user, the user must not be logged into the application. 
-- To list all users, the user must be an administrator.
-
----
-
-
-### User Password Recovery
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible for the user to recover the password by informing the email.
-- The user should received an e-mail with step-by-step for password recovery.
-- The user should be able to get a new password.
-
-**RN** (<i>Business Rules</i>)
-- The user must enter a new password.
-- The link sent for password recovery must expire in 24 hours.
-
----
-
-
-### User Rentals Listing
-
-**RF** (<i>Functional Requirements</i>)
-- It must be possible to search all rentals made by user. 
-
-**RN** (<i>Business Rules</i>)
-- The user must be logged into the application.
-
-<br/> <br/> 
 
 
 <!---- CONTRIBUTING ---->
