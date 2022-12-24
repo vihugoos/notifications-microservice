@@ -35,22 +35,6 @@
         <li><a href="#tests"> Tests </a></li>
       </ul>
     </li>
-    <li><a href="#api-documentation"> API Documentation </a></li>
-    <li>
-      <a href="#requirements-documentation"> Requirements Documentation </a>
-      <ul>
-        <li><a href="#cars-registration"> Cars Registration </a></li>
-        <li><a href="#car-listing"> Car Listing </a></li>
-        <li><a href="#car-category"> Car Category </a></li>
-        <li><a href="#car-specifications"> Car Specifications </a></li>
-        <li><a href="#car-images"> Car Images </a></li>
-        <li><a href="#car-rental-registration"> Car Rental Registration </a></li>
-        <li><a href="#car-devolution"> Car Devolution </a></li>
-        <li><a href="#users"> Users </a></li>
-        <li><a href="#user-password-recovery"> User Password Recovery </a></li>
-        <li><a href="#user-rentals-listing"> User Rentals Listing </a></li>
-      </ul>
-    </li>
     <li><a href="#contributing"> Contributing </a></li>
     <li><a href="#contact"> Contact </a></li>
   </ol>
