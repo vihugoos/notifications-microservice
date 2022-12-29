@@ -99,7 +99,7 @@ To get started, you need to have <strong>Node.js 18+</strong> installed on your 
 
 ### Prerequisites 
 
-Before starting the installation, you need to create an account on <a href="https://console.upstash.com/">Uptash</a>, for soon we will create a Serverless Data for Kafka.
+Other than node.js and docker installed, before starting the installation, you need to create an account on <a href="https://console.upstash.com/">Uptash</a>, for soon we will create a Serverless Data for Kafka.
 
 
 ### Installation 
