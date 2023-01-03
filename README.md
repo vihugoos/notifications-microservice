@@ -125,16 +125,22 @@ Other than node.js and docker installed, before starting the installation, you n
    npx prisma migrate dev
    ```
 
-
 <!---- USAGE EXAMPLES ----> 
 ## Usage
 
-With the installation complete, we can start the project.
+With the installation complete, we will create a Serverless Data for Kafka and start the project.
 
-* Starting the project 
-   ```bash
-   npm run start:dev  
-   ```
+* Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> and create a new cluster
+ <div align="center">
+    <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210428253-ea873d13-27ff-4e74-8c27-0909b268d2dd.jpg"> 
+ </div>
+ <br/>
+
+* Fill in the fields to create a new cluster  
+ <div align="center">
+    <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210430941-57d6a06b-00d2-445f-90d8-68ba9eacfa81.jpg"> 
+ </div>
+ <br/>
 
 
 <!---- TESTS SETUP ----> 
