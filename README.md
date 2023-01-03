@@ -130,13 +130,13 @@ Other than node.js and docker installed, before starting the installation, you n
 
 With the installation complete, we will create a Serverless Data for Kafka and start the project.
 
-* Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> and create a new cluster
+* Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster
  <div align="center">
     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210428253-ea873d13-27ff-4e74-8c27-0909b268d2dd.jpg"> 
  </div>
  <br/>
 
-* Fill in the fields to create a new cluster 
+* Fill in the fields to create a new cluster as shown below 
  <div align="center">
     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210431565-a183deac-7c03-4b1b-b434-564a70c0c858.jpg"> 
  </div>
