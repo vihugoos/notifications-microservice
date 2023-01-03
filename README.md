@@ -130,21 +130,22 @@ Other than node.js and docker installed, before starting the installation, you n
 
 With the installation complete, we will create a Serverless Data for Kafka and start the project.
 
-1. Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster
+
+1. Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster 
    <div align="center">
-     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210428253-ea873d13-27ff-4e74-8c27-0909b268d2dd.jpg"> 
+     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210450259-4508e630-c3fd-4626-9740-a3b04a6524b6.jpg"> 
    </div>
    <br/>
 
 2. Fill in the fields to create a new cluster as shown below 
    <div align="center">
-     <img align="center" alt="fill-cluster" src="https://user-images.githubusercontent.com/44311634/210431565-a183deac-7c03-4b1b-b434-564a70c0c858.jpg"> 
+     <img align="center" alt="fill-cluster" src="https://user-images.githubusercontent.com/44311634/210450637-cabdd517-b60c-48b7-9d78-fe71b2161fdf.jpg"> 
    </div>
    <br/>
  
 3. Create a new topic (<i>Warning: <b>Topic name</b> must match exactly as shown below</i>)
    <div align="center">
-     <img align="center" alt="new-topic" src="https://user-images.githubusercontent.com/44311634/210433614-73a99887-6e5f-40ba-b9e7-08251f8d52f3.jpg"> 
+     <img align="center" alt="new-topic" src="https://user-images.githubusercontent.com/44311634/210452656-7dd11e36-cc31-477f-a8e6-33b666c40adb.jpg"> 
    </div>
    <br/>
 
@@ -177,6 +178,13 @@ With the installation complete, we will create a Serverless Data for Kafka and s
         }
     }
    ```
+
+5. Starting the project
+   ```bash
+   npm run start:dev
+   ```
+   <br/>
+
 
 <!---- TESTS SETUP ----> 
 ## Tests
