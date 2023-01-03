@@ -124,32 +124,22 @@ Other than node.js and docker installed, before starting the installation, you n
    ```cmd
    npx prisma migrate dev
    ```
-
-<!---- USAGE EXAMPLES ----> 
-## Usage
-
-With the installation complete, we will create a Serverless Data for Kafka and start the project.
-
-
-1. Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster 
+5. Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster 
    <div align="center">
-     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210450259-4508e630-c3fd-4626-9740-a3b04a6524b6.jpg"> 
+     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210454989-8df193c9-ecd5-48e6-940a-a6047eef3fe5.jpg"> 
+   </div>
+6. Fill in the fields to create a new cluster as shown below 
+   <div align="center">
+     <img align="center" alt="fill-cluster" src="https://user-images.githubusercontent.com/44311634/210455127-443b49f2-6b9f-402d-8a55-47e46dd68f68.jpg"> 
+   </div>
+
+7. Create a new topic (<i>Warning: <b>Topic name</b> must match exactly as shown below</i>)
+   <div align="center">
+     <img align="center" alt="new-topic" src="https://user-images.githubusercontent.com/44311634/210455223-2707230a-1735-4ef1-8544-3ebd55f4047f.jpg"> 
    </div>
    <br/>
 
-2. Fill in the fields to create a new cluster as shown below 
-   <div align="center">
-     <img align="center" alt="fill-cluster" src="https://user-images.githubusercontent.com/44311634/210450637-cabdd517-b60c-48b7-9d78-fe71b2161fdf.jpg"> 
-   </div>
-   <br/>
- 
-3. Create a new topic (<i>Warning: <b>Topic name</b> must match exactly as shown below</i>)
-   <div align="center">
-     <img align="center" alt="new-topic" src="https://user-images.githubusercontent.com/44311634/210452656-7dd11e36-cc31-477f-a8e6-33b666c40adb.jpg"> 
-   </div>
-   <br/>
-
-4. Change the settings in `./src/infra/messaging/kafka/kafka-consumer.service.ts` with your server credentials 
+8. Change the settings in `./src/infra/messaging/kafka/kafka-consumer.service.ts` with your server credentials 
    <div align="center">
      <img align="center" alt="server-credentials" src="https://user-images.githubusercontent.com/44311634/210437877-be8404ec-571c-425b-a2ee-865c1b838acf.jpg"> 
    </div>
@@ -179,12 +169,16 @@ With the installation complete, we will create a Serverless Data for Kafka and s
     }
    ```
 
-5. Starting the project
+   
+<!---- USAGE EXAMPLES ----> 
+## Usage
+
+With the installation complete, we can start the project.
+
+* Starting the project
    ```bash
    npm run start:dev
    ```
-   <br/>
-
 
 <!---- TESTS SETUP ----> 
 ## Tests
