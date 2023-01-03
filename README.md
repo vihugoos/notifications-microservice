@@ -138,7 +138,7 @@ With the installation complete, we will create a Serverless Data for Kafka and s
 
 * Fill in the fields to create a new cluster 
  <div align="center">
-    <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210431386-87775593-cd8f-4c95-9f29-bae7fb21d5b1.jpg"> 
+    <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210431565-a183deac-7c03-4b1b-b434-564a70c0c858.jpg"> 
  </div>
  <br/>
 
