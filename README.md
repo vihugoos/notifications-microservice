@@ -130,18 +130,53 @@ Other than node.js and docker installed, before starting the installation, you n
 
 With the installation complete, we will create a Serverless Data for Kafka and start the project.
 
-* Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster
- <div align="center">
-    <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210428253-ea873d13-27ff-4e74-8c27-0909b268d2dd.jpg"> 
- </div>
- <br/>
+1. Access <a href="https://console.upstash.com/kafka">Upstash - Kafka</a> to create a new cluster
+   <div align="center">
+     <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210428253-ea873d13-27ff-4e74-8c27-0909b268d2dd.jpg"> 
+   </div>
+   <br/>
 
-* Fill in the fields to create a new cluster as shown below 
- <div align="center">
-    <img align="center" alt="new-cluster" src="https://user-images.githubusercontent.com/44311634/210431565-a183deac-7c03-4b1b-b434-564a70c0c858.jpg"> 
- </div>
- <br/>
+2. Fill in the fields to create a new cluster as shown below 
+   <div align="center">
+     <img align="center" alt="fill-cluster" src="https://user-images.githubusercontent.com/44311634/210431565-a183deac-7c03-4b1b-b434-564a70c0c858.jpg"> 
+   </div>
+   <br/>
+ 
+3. Create a new topic (<i>Warning: Topic name must match exactly as shown below</i>)
+   <div align="center">
+     <img align="center" alt="new-topic" src="https://user-images.githubusercontent.com/44311634/210433614-73a99887-6e5f-40ba-b9e7-08251f8d52f3.jpg"> 
+   </div>
+   <br/>
 
+4. Change the settings in `./src/infra/messaging/kafka/kafka-consumer.service.ts` with your server credentials 
+   <div align="center">
+     <img align="center" alt="server-credentials" src="https://user-images.githubusercontent.com/44311634/210437877-be8404ec-571c-425b-a2ee-865c1b838acf.jpg"> 
+   </div>
+   <br/>
+   
+   ```js
+    @Injectable()
+    export class KafkaConsumerService extends ServerKafka implements OnModuleDestroy {
+        constructor() {
+            super({
+                client: {
+                    clientId: 'notifications',
+                    brokers: ['yourEndpoint'],
+                    sasl: {
+                        mechanism: 'scram-sha-256',
+                        username: 'yourUsername',
+                        password: 'yourPassword',
+                    },
+                    ssl: true,
+                },
+            });
+        }
+
+        async onModuleDestroy() {
+            await this.close();
+        }
+    }
+   ```
 
 <!---- TESTS SETUP ----> 
 ## Tests
