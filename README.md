@@ -142,7 +142,7 @@ With the installation complete, we will create a Serverless Data for Kafka and s
    </div>
    <br/>
  
-3. Create a new topic (<i>Warning: Topic name must match exactly as shown below</i>)
+3. Create a new topic (<i>Warning: <b>Topic name</b> must match exactly as shown below</i>)
    <div align="center">
      <img align="center" alt="new-topic" src="https://user-images.githubusercontent.com/44311634/210433614-73a99887-6e5f-40ba-b9e7-08251f8d52f3.jpg"> 
    </div>
