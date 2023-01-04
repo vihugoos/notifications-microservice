@@ -44,7 +44,7 @@
 <!---- THE PROJECT ---->
 ## About The Project 
 
-<img src="" align="center" alt="Project Home Page">
+<img src="https://user-images.githubusercontent.com/44311634/210629044-f8e65062-0865-4101-9ded-002dd297f17e.png" align="center" alt="Project Home Page">
 A microservice for sending notifications, following SOLID principles. Receiving notifications by the service can be done via HTTP requests or through asynchronous messaging by a Kafka Producer. Some patterns like Data mapper, Factory method and DTO, were applied. The tests apply the in-memory database concept.
 
 
