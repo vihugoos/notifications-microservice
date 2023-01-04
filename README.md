@@ -116,7 +116,7 @@ Other than node.js and docker installed, before starting the installation, you n
    ```cmd
    echo "DATABASE_URL='postgresql://postgres:docker@localhost:5432/notifications?schema=public'" > .env 
    ```
-4. Create a psql container docker 
+4. Create a postgres container docker 
    ```cmd
    docker run --name notifications_microservice -e POSTGRES_DB=notifications -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres 
    ```
